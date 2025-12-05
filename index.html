@@ -1,96 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zelo – Early Access</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
-        header { background: #2B2BFF; padding: 80px 20px; color: white; text-align: center; }
-        h1 { font-size: 48px; margin-bottom: 10px; }
-        p { font-size: 18px; }
-
-        .container { max-width: 900px; margin: auto; padding: 40px 20px; }
-        .card { background: white; padding: 30px; margin-bottom: 40px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        h2 { margin-top: 0; }
-
-        input, textarea, button {
-            width: 100%; padding: 12px; margin-top: 10px;
-            border-radius: 8px; border: 1px solid #ccc; font-size: 16px;
-        }
-        button {
-            background: #2B2BFF; color: white; border: none; cursor: pointer;
-        }
-        button:hover { opacity: 0.9; }
-
-        footer {
-            padding: 20px; text-align: center; background: #eee; margin-top: 40px;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zelo — Early Access</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>Stop Searching. Ask Zelo.</h1>
+      <p class="sub">AI-powered, verified marketplace for Property, Services & Curated Cars in Cyprus.</p>
 
-<header>
-    <h1>Stop Searching. Ask Zelo.</h1>
-    <p>The AI-powered, trusted marketplace for properties, services & curated cars in Cyprus.</p>
-</header>
-
-<div class="container">
-
-    <div class="card">
-        <h2>Join Early Access</h2>
-        <p>Be the first to try Zelo and help us shape the future of trusted marketplaces in Cyprus.</p>
-
-        <form id="zeloForm">
-            <label>Email</label>
-            <input type="email" id="email" required>
-
-            <label>Optional: What features would you like?</label>
-            <textarea id="feedback" rows="4" placeholder="Tell us what would make Zelo better..."></textarea>
-
-            <button type="submit">Join the Waitlist</button>
-        </form>
+      <div class="cta-row">
+        <button id="joinBtn" class="btn primary">Join Early Access</button>
+        <button id="listBtn" class="btn outline">List Your Business</button>
+      </div>
     </div>
+  </header>
 
-    <div class="card">
-        <h2>What Is Zelo?</h2>
-        <p>Zelo uses AI to understand your needs, preferences and budget — and instantly recommend verified listings.</p>
-    </div>
+  <main class="container">
+    <section class="card">
+      <h2>What Is Zelo?</h2>
+      <p>Zelo makes searching simple — tell Zelo what you need in plain language and our AI recommends verified results instantly.</p>
+    </section>
 
-    <div class="card">
-        <h2>Core Categories</h2>
-        <p><strong>Property:</strong> Apartments, Houses, Land, Rentals</p>
-        <p><strong>Services:</strong> Plumbers, Electricians, Cleaners, Movers</p>
-        <p><strong>Curated Cars:</strong> Verified dealers, mileage-check, no fake sellers</p>
-    </div>
+    <section class="card two-col">
+      <div>
+        <h3>For Customers</h3>
+        <ul>
+          <li>Natural language search</li>
+          <li>Verified providers only</li>
+          <li>Fast, trusted matches</li>
+        </ul>
+      </div>
+      <div>
+        <h3>For Businesses</h3>
+        <ul>
+          <li>Get qualified leads</li>
+          <li>Verification badge</li>
+          <li>Smart routing of requests</li>
+        </ul>
+      </div>
+    </section>
 
-</div>
+    <section class="card" id="waitlistCard">
+      <h2>Join the Waitlist</h2>
+      <p>Leave your email and optional feedback — we read every submission.</p>
 
-<footer>
-    Zelo – The Smart, Trusted Marketplace of Cyprus
-</footer>
+      <form id="waitlistForm" class="form">
+        <label>Email</label>
+        <input id="email" type="email" placeholder="you@example.com" required />
 
-<script>
-    document.getElementById("zeloForm").addEventListener("submit", function(event) {
-        event.preventDefault();
+        <label>Optional: What features would you like?</label>
+        <textarea id="feedback" rows="4" placeholder="Tell us what would make Zelo perfect for you..."></textarea>
 
-        const SCRIPT_URL = "YOUR_GOOGLE_SCRIPT_URL_HERE";
+        <div class="row">
+          <select id="type">
+            <option value="user">I'm a customer</option>
+            <option value="provider">I'm a business / provider</option>
+          </select>
+          <button type="submit" class="btn primary">Join the Waitlist</button>
+        </div>
 
-        const email = document.getElementById("email").value;
-        const feedback = document.getElementById("feedback").value;
+        <p id="status" class="status"></p>
+      </form>
+    </section>
 
-        fetch(SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email, feedback })
-        });
+    <section class="card">
+      <h2>Core Categories</h2>
+      <p><strong>Property</strong> · <strong>Services</strong> · <strong>Curated Cars</strong></p>
+    </section>
+  </main>
 
-        alert("Thank you! You have been added to the Zelo Early Access list.");
-        document.getElementById("zeloForm").reset();
-    });
-</script>
+  <footer class="footer">
+    <p>Zelo — The Smart, Trusted Marketplace of Cyprus</p>
+  </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
